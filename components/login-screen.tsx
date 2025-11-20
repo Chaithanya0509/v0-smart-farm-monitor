@@ -43,23 +43,25 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-card rounded-lg shadow-lg p-8 space-y-8">
+        <div className="bg-card rounded-xl shadow-2xl p-8 space-y-8 border border-border/50">
           {/* Header */}
           <div className="space-y-2 text-center">
-            <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary mx-auto mb-4">
-              <span className="text-xl font-bold text-primary-foreground">🌾</span>
+            <div className="flex items-center justify-center w-16 h-16 rounded-lg bg-gradient-to-br from-primary to-primary/70 mx-auto mb-4 shadow-lg">
+              <span className="text-3xl">🌾</span>
             </div>
-            <h1 className="text-2xl font-bold text-foreground">Smart Farm Monitor</h1>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Smart Farm Monitor
+            </h1>
             <p className="text-sm text-muted-foreground">Access your farm dashboard</p>
           </div>
 
           {/* Error Message */}
           {error && (
-            <Alert variant="destructive">
-              <AlertCircle className="h-4 w-4" />
-              <AlertDescription>{error}</AlertDescription>
+            <Alert variant="destructive" className="bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800">
+              <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+              <AlertDescription className="text-red-700 dark:text-red-300">{error}</AlertDescription>
             </Alert>
           )}
 
@@ -120,7 +122,7 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold h-10"
+              className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-semibold h-11 shadow-lg"
             >
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
